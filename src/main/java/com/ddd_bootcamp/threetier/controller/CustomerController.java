@@ -4,6 +4,7 @@ import com.ddd_bootcamp.domain.Address;
 import com.ddd_bootcamp.domain.Customer;
 import com.ddd_bootcamp.threetier.applicationservice.CustomerAppService;
 import com.ddd_bootcamp.threetier.controller.resource.CustomerResource;
+import com.ddd_bootcamp.threetier.controller.viewModel.AddressRequest;
 import com.ddd_bootcamp.threetier.controller.viewModel.CustomerRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -34,4 +35,14 @@ public class CustomerController {
         Customer customer = customerAppService.fetchCustomer(UUID.randomUUID());
         return new CustomerResource();
     }
+
+    @PutMapping("/customers/{customerId}/address")
+    public CustomerResource createAccount(@RequestBody AddressRequest request, @PathVariable String customerId) {
+        System.out.println("request = " + request);
+        System.out.println("PathVariable = " + customerId);
+        Customer customer = customerAppService.updateAddress(UUID.randomUUID(), new Address(request.getCity()));
+        return new CustomerResource();
+    }
+
+
 }

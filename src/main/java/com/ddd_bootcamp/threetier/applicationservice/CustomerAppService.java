@@ -29,4 +29,10 @@ public class CustomerAppService {
     public Customer fetchCustomer(UUID customerId) {
         return customerRepository.find(customerId);
     }
+
+    public Customer updateAddress(UUID customerId, Address address) {
+        Customer customer = customerRepository.find(customerId);
+        //customer.updateAddress(address);
+        return customer;
+    }
 }
