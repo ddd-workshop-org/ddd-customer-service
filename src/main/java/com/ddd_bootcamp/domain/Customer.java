@@ -30,6 +30,14 @@ public class Customer {
         return customerId;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +

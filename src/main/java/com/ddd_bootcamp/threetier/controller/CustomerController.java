@@ -24,8 +24,10 @@ public class CustomerController {
     @PostMapping("/customers")
     public CustomerResource create(@RequestBody CustomerRequest request) {
         System.out.println("request = " + request);
-        Customer customer = customerAppService.createCustomer(new Customer(new Address("pune")));
-        return new CustomerResource();
+        Customer customer = customerAppService.createCustomer(
+                new Customer(new Address(request.getAddressRequest().getCity())));
+        Customer newCustomer = customerAppService.createCustomer(customer);
+        return new CustomerResource().from(newCustomer);
     }
 
     @PostMapping("/customers/{customerId}/accounts")
