@@ -6,6 +6,7 @@ import com.ddd_bootcamp.domain.Customer;
 import com.ddd_bootcamp.threetier.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.UUID;
 
 @Service
@@ -17,6 +18,7 @@ public class CustomerAppService {
         this.customerRepository = customerRepository;
     }
 
+    //@Transactional
     public Customer createCustomer(Customer customer) {
         Customer savedCustomer = customerRepository.save(customer);
         return savedCustomer;
@@ -26,12 +28,14 @@ public class CustomerAppService {
         return customerRepository.find(customerId);
     }
 
+    //@Transactional
     public Customer updateAddress(UUID customerId, Address address) {
         Customer customer = customerRepository.find(customerId);
         customer.updateAddress(address);
         return customer;
     }
 
+    //@Transactional
     public Customer addAccount(UUID customerId, Account account) {
         Customer customer = customerRepository.find(customerId);
         customer.addAccount(account);

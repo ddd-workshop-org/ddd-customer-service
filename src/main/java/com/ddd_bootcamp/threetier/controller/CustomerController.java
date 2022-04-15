@@ -37,7 +37,9 @@ public class CustomerController {
     public CustomerResource createAccount(@RequestBody AccountRequest request, @PathVariable String customerId) {
         System.out.println("request = " + request);
         System.out.println("PathVariable = " + customerId);
+
         Customer customer = customerAppService.addAccount(UUID.fromString(customerId), new Account());
+
         return CustomerResource.from(customer);
     }
 
@@ -45,8 +47,10 @@ public class CustomerController {
     public CustomerResource createAccount(@RequestBody AddressRequest request, @PathVariable String customerId) {
         System.out.println("request = " + request);
         System.out.println("PathVariable = " + customerId);
-        Customer customer = customerAppService.updateAddress(UUID.randomUUID(), new Address(request.getCity()));
-        return new CustomerResource();
+
+        Customer customer = customerAppService.updateAddress(UUID.fromString(customerId), new Address(request.getCity()));
+
+        return CustomerResource.from(customer);
     }
 
 
