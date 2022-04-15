@@ -4,6 +4,7 @@ import com.ddd_bootcamp.domain.Customer;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class CustomerResource {
     private UUID customerId;
@@ -11,17 +12,18 @@ public class CustomerResource {
     private List<AccountData> accountDataList;
 
     public CustomerResource() {
-
     }
 
-    public CustomerResource from(Customer newCustomer) {
+    public static CustomerResource from(Customer customer) {
         CustomerResource customerResource = new CustomerResource();
-        customerResource.setCustomerId(newCustomer.getCustomerId());
-        AddressData addressData = new AddressData();
-        addressData.setCity(newCustomer.getAddress().getCity());
-        customerResource.setAddressData(addressData);
+        customerResource.setCustomerId(customer.getCustomerId());
 
-        return  customerResource;
+        customerResource.setAddressData(AddressData.from(customer.getAddress()));
+        List<AccountData> accountDataList = customer.getAccounts().stream()
+                .map(account -> AccountData.from(account)).collect(Collectors.toList());
+        customerResource.setAccountDataList(accountDataList);
+
+        return customerResource;
     }
 
     public UUID getCustomerId() {

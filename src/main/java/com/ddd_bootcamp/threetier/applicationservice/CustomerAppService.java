@@ -1,5 +1,6 @@
 package com.ddd_bootcamp.threetier.applicationservice;
 
+import com.ddd_bootcamp.domain.Account;
 import com.ddd_bootcamp.domain.Address;
 import com.ddd_bootcamp.domain.Customer;
 import com.ddd_bootcamp.threetier.repository.CustomerRepository;
@@ -29,5 +30,11 @@ public class CustomerAppService {
         Customer customer = customerRepository.find(customerId);
         customer.updateAddress(address);
         return customer;
+    }
+
+    public Customer addAccount(UUID customerId, Account account) {
+        Customer customer = customerRepository.find(customerId);
+        customer.addAccount(account);
+        return customerRepository.save(customer);
     }
 }

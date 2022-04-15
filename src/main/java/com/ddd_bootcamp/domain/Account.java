@@ -14,6 +14,14 @@ public class Account {
         this.address = address;
     }
 
+    public UUID getAccountId() {
+        return accountId;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
