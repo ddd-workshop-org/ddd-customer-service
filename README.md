@@ -19,12 +19,10 @@ curl --location --request POST 'http://localhost:8080/customers' \
 }'
 
 
-curl --location --request POST 'http://localhost:8080/customers/89806f42-65c2-42fc-a88e-689361d94bd9/accounts' \
+curl --location --request POST 'http://localhost:8080/customers/874ba8f1-79c7-4e8c-b313-3d9cd1991892/accounts' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"accountRequest" : {
 
-    }
 }'
 
 

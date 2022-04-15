@@ -24,15 +24,11 @@ public class CustomerAppService {
         return savedCustomer;
     }
 
-    public Customer fetchCustomer(UUID customerId) {
-        return customerRepository.find(customerId);
-    }
-
     //@Transactional
     public Customer updateAddress(UUID customerId, Address address) {
         Customer customer = customerRepository.find(customerId);
         customer.updateAddress(address);
-        return customer;
+        return customerRepository.save(customer);
     }
 
     //@Transactional

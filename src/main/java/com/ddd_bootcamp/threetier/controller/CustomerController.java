@@ -8,8 +8,6 @@ import com.ddd_bootcamp.threetier.controller.resource.CustomerResource;
 import com.ddd_bootcamp.threetier.controller.viewModel.AccountRequest;
 import com.ddd_bootcamp.threetier.controller.viewModel.AddressRequest;
 import com.ddd_bootcamp.threetier.controller.viewModel.CustomerRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
