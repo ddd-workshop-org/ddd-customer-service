@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class CustomerAppService {
 
@@ -24,4 +26,7 @@ public class CustomerAppService {
         return new Customer(new Address("ss"));
     }
 
+    public Customer fetchCustomer(UUID customerId) {
+        return customerRepository.find(customerId);
+    }
 }

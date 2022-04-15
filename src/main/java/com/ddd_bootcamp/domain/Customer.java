@@ -26,6 +26,10 @@ public class Customer {
         });
     }
 
+    public UUID getCustomerId() {
+        return customerId;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +

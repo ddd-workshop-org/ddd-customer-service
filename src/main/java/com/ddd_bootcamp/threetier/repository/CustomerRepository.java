@@ -3,6 +3,8 @@ package com.ddd_bootcamp.threetier.repository;
 import com.ddd_bootcamp.domain.Customer;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 //Customer Repository or Data Access Layer
 //Using in-memory map instead of db for demo
 
@@ -13,4 +15,7 @@ public class CustomerRepository {
         System.out.println("in Repository customer = " + customer);
     }
 
+    public Customer find(UUID customerId) {
+        return null;
+    }
 }

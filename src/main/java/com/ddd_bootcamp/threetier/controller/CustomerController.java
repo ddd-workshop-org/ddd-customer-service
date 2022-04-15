@@ -7,10 +7,9 @@ import com.ddd_bootcamp.threetier.controller.resource.CustomerResource;
 import com.ddd_bootcamp.threetier.controller.viewModel.CustomerRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 public class CustomerController {
@@ -25,6 +24,14 @@ public class CustomerController {
     public CustomerResource create(@RequestBody CustomerRequest request) {
         System.out.println("request = " + request);
         Customer customer = customerAppService.createCustomer(new Customer(new Address("pune")));
+        return new CustomerResource();
+    }
+
+    @PostMapping("/customers/{customerId}/accounts")
+    public CustomerResource createAccount(@RequestBody CustomerRequest request, @PathVariable String customerId) {
+        System.out.println("request = " + request);
+        System.out.println("PathVariable = " + customerId);
+        Customer customer = customerAppService.fetchCustomer(UUID.randomUUID());
         return new CustomerResource();
     }
 }
