@@ -42,7 +42,7 @@ public class CustomerController {
     }
 
     @PutMapping("/customers/{customerId}/address")
-    public CustomerResource createAccount(@RequestBody AddressRequest request, @PathVariable String customerId) {
+    public CustomerResource updateAddress(@RequestBody AddressRequest request, @PathVariable String customerId) {
         System.out.println("request = " + request);
         System.out.println("PathVariable = " + customerId);
 
