@@ -13,7 +13,7 @@ public class AccountData {
     }
     public static AccountData from(Account account) {
         AccountData accountData = new AccountData();
-        accountData.setAccountId(account.getAccountId());
+        accountData.setAccountId(account.getAccountId().getAccountIdUUID());
         accountData.setAddressData(AddressData.from(account.getAddress()));
         return accountData;
     }

@@ -16,7 +16,7 @@ public class CustomerResource {
 
     public static CustomerResource from(Customer customer) {
         CustomerResource customerResource = new CustomerResource();
-        customerResource.setCustomerId(customer.getCustomerId());
+        customerResource.setCustomerId(customer.getCustomerId().getCustomerId());
 
         customerResource.setAddressData(AddressData.from(customer.getAddress()));
         List<AccountData> accountDataList = customer.getAccounts().stream()

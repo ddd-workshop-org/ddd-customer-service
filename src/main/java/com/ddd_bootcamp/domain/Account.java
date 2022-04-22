@@ -4,22 +4,26 @@ import java.util.UUID;
 
 public class Account {
 
-    private UUID accountId;
+    private AccountId accountId;
     private Address address;
 
     public Account() {
-        this.accountId =  UUID.randomUUID();
+        this.accountId =  new AccountId(UUID.randomUUID());
     }
     protected void updateAddress(Address address) {
         this.address = address;
     }
 
-    public UUID getAccountId() {
+    public AccountId getAccountId() {
         return accountId;
     }
 
     public Address getAddress() {
         return address;
+    }
+
+    public String getAccountIdAsString() {
+        return  accountId.getAccountIdUUID().toString();
     }
 
     @Override

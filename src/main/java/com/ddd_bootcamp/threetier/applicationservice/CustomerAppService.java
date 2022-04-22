@@ -3,6 +3,7 @@ package com.ddd_bootcamp.threetier.applicationservice;
 import com.ddd_bootcamp.domain.Account;
 import com.ddd_bootcamp.domain.Address;
 import com.ddd_bootcamp.domain.Customer;
+import com.ddd_bootcamp.domain.CustomerId;
 import com.ddd_bootcamp.threetier.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,14 +26,14 @@ public class CustomerAppService {
     }
 
     //@Transactional
-    public Customer updateAddress(UUID customerId, Address address) {
+    public Customer updateAddress(CustomerId customerId, Address address) {
         Customer customer = customerRepository.find(customerId);
         customer.updateAddress(address);
         return customerRepository.save(customer);
     }
 
     //@Transactional
-    public Customer addAccount(UUID customerId, Account account) {
+    public Customer addAccount(CustomerId customerId, Account account) {
         Customer customer = customerRepository.find(customerId);
         customer.addAccount(account);
         return customerRepository.save(customer);

@@ -3,6 +3,7 @@ package com.ddd_bootcamp.threetier.controller;
 import com.ddd_bootcamp.domain.Account;
 import com.ddd_bootcamp.domain.Address;
 import com.ddd_bootcamp.domain.Customer;
+import com.ddd_bootcamp.domain.CustomerId;
 import com.ddd_bootcamp.threetier.applicationservice.CustomerAppService;
 import com.ddd_bootcamp.threetier.controller.resource.CustomerResource;
 import com.ddd_bootcamp.threetier.controller.viewModel.AccountRequest;
@@ -36,7 +37,7 @@ public class CustomerController {
         System.out.println("request = " + request);
         System.out.println("PathVariable = " + customerId);
 
-        Customer customer = customerAppService.addAccount(UUID.fromString(customerId), new Account());
+        Customer customer = customerAppService.addAccount(new CustomerId(UUID.fromString(customerId)), new Account());
 
         return CustomerResource.from(customer);
     }
@@ -46,7 +47,8 @@ public class CustomerController {
         System.out.println("request = " + request);
         System.out.println("PathVariable = " + customerId);
 
-        Customer customer = customerAppService.updateAddress(UUID.fromString(customerId), new Address(request.getCity()));
+        Customer customer = customerAppService.updateAddress(new CustomerId(UUID.fromString(customerId)),
+                new Address(request.getCity()));
 
         return CustomerResource.from(customer);
     }
