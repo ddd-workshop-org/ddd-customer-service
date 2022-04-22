@@ -32,7 +32,7 @@ public class CustomerController {
         return CustomerResource.from(customer);
     }
 
-    @PostMapping("/customers/{customerId}/accounts")
+    @PutMapping("/customers/{customerId}/accounts")
     public CustomerResource createAccount(@RequestBody AccountRequest request, @PathVariable String customerId) {
         System.out.println("request = " + request);
         System.out.println("PathVariable = " + customerId);

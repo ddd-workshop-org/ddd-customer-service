@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class Customer {
+public class Customer implements Aggregate {
     private CustomerId customerId;
     private Address address;
     private List<Account> accounts = new ArrayList<>();
