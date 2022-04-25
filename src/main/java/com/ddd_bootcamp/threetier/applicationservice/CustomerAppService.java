@@ -8,7 +8,6 @@ import com.ddd_bootcamp.threetier.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.UUID;
 
 @Service
 public class CustomerAppService {

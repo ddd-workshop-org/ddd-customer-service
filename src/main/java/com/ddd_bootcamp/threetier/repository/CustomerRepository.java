@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 //Customer Repository or Data Access Layer
 //Using in-memory map instead of db for demo
