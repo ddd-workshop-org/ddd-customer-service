@@ -1,5 +1,7 @@
 package com.ddd_bootcamp.domain;
 
+import com.ddd_bootcamp.domain.events.CustomerAddressUpdatedEvent;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
